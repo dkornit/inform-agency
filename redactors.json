@@ -1,6 +1,6 @@
 [
   {
-    "model": "myapp.redactor",
+    "model": "app.redactor",
     "pk": 1,
     "fields": {
       "username": "john_smith",
@@ -12,7 +12,7 @@
     }
   },
   {
-    "model": "myapp.redactor",
+    "model": "app.redactor",
     "pk": 2,
     "fields": {
       "username": "emily_johnson",
@@ -24,7 +24,7 @@
     }
   },
   {
-    "model": "myapp.redactor",
+    "model": "app.redactor",
     "pk": 3,
     "fields": {
       "username": "michael_brown",

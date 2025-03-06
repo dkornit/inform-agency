@@ -1,52 +1,52 @@
 [
   {
-    "model": "myapp.newspaper",
+    "model": "app.newspaper",
     "fields": {
       "title": "The Rise of AI in Modern Healthcare",
       "content": "Artificial intelligence is transforming the healthcare industry by improving diagnostics, patient care, and operational efficiency...",
       "published_date": "2024-01-15",
       "topic": 1,
-      "publisher_list": [1, 2]
+      "publishers": [1, 2]
   }
   },
   {
-    "model": "myapp.newspaper",
+    "model": "app.newspaper",
     "fields": {
       "title": "Sustainable Energy Solutions for a Greener Future",
       "content": "Renewable energy sources such as solar, wind, and hydro are becoming essential in the fight against climate change...",
       "published_date": "2023-12-10",
-      "topic": "Environment",
-      "publisher_list": [2, 3]
+      "topic": 2,
+      "publishers": [2, 3]
   }
   },
   {
-    "model": "myapp.newspaper",
+    "model": "app.newspaper",
     "fields": {
       "title": "The Future of Space Exploration: Mars and Beyond",
       "content": "NASA and private companies are working together to make space travel to Mars a reality in the coming decades...",
       "published_date": "2024-02-05",
-      "topic": "Science",
-      "publisher_list": [3, 1]
+      "topic": 3,
+      "publishers": [3, 1]
   }
   },
   {
-    "model": "myapp.newspaper",
+    "model": "app.newspaper",
     "fields": {
       "title": "The Impact of Remote Work on Productivity",
       "content": "With remote work becoming more common, studies suggest that employees experience both benefits and challenges in maintaining productivity...",
       "published_date": "2024-01-28",
-      "topic": "Business",
-      "publisher_list": [1]
+      "topic": 4,
+      "publishers": [1]
   }
   },
   {
-    "model": "myapp.newspaper",
+    "model": "app.newspaper",
     "fields": {
       "title": "The Evolution of Electric Vehicles",
       "content": "The automotive industry is rapidly shifting towards electric vehicles, with new advancements in battery technology and charging infrastructure...",
       "published_date": "2024-02-15",
-      "topic": "Automotive",
-      "publisher_list": [2]
+      "topic": 5,
+      "publishers": [2]
   }
   }
 ]
