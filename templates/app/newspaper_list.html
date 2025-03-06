@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<h1>Newspaper List</h1>
+  {% if newspaper_list %}
+    <ul>
+      {% for newspaper in newspaper_list %}
+        <li>
+          {{ newspaper.title }} {{ newspaper.published_date}} {{ newspaper.topic }} {{ newspaper.publishers }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

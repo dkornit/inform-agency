@@ -23,7 +23,7 @@ def index(request):
         "num_visits": num_visits + 1,
     }
 
-    return render(request, "taxi/index.html", context=context)
+    return render(request, "app/index.html", context=context)
 
 
 class NewspaperListView(generic.ListView):
@@ -38,4 +38,4 @@ class RedactorListView(generic.ListView):
 
 class TopicListView(generic.ListView):
     model = Topic
-    template_name = "app/topic_list"
+    template_name = "app/topic_list.html"

@@ -1,0 +1,37 @@
+[
+  {
+    "model": "myapp.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Technology"
+    }
+  },
+  {
+    "model": "myapp.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Environment"
+    }
+  },
+  {
+    "model": "myapp.topic",
+    "pk": 3,
+    "fields": {
+      "name": "Science"
+    }
+  },
+  {
+    "model": "myapp.topic",
+    "pk": 4,
+    "fields": {
+      "name": "Business"
+    }
+  },
+  {
+    "model": "myapp.topic",
+    "pk": 5,
+    "fields": {
+      "name": "Automotive"
+    }
+  }
+]
