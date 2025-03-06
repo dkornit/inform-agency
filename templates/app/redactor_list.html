@@ -21,8 +21,10 @@
                   <i class="fas fa-ship opacity-10"></i>
                 </div>
                 <div class="description ps-3">
-                  <span class="text-muted">{{ redactor.first_name }} {{ redactor.last_name }}</span><br>
-                  <span class="text-muted">{{ redactor.year_of_experience }} years of experience</span>
+                  <a href="{% url 'app:redactor-detail' pk=redactor.id %}">
+                    <span class="text-muted"><strong>{{ redactor.first_name }} {{ redactor.last_name }}</strong></span><br>
+                    <span class="text-muted">{{ redactor.year_of_experience }} years of experience</span>
+                  </a>
                 </div>
               </li>
             {% endfor %}

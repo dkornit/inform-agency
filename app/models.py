@@ -19,7 +19,6 @@ class Redactor(AbstractUser):
 class Topic(models.Model):
     name = models.CharField(max_length=63, unique=True)
 
-
     def __str__(self):
          return f"{self.name}"
 

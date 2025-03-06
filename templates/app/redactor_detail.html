@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section class="py-9">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-6 my-auto">
+          <h3>{{ redactor.full_name }}</h3>
+          <p>Experience: {{ redactor.year_of_experience }} years</p></div>
+        </div>
+        <div>
+          <h4>Newspapers published by {{ redactor.full_name }}</h4>
+            <ul>
+            {% for newspaper in newspapers %}
+            <li>
+              <strong>{{ newspaper.title }}</strong>
+              <p>Published on: {{ newspaper.published_date }}</p>
+              <p>Topic: {{ newspaper.topic.name }}</p>
+              <p>Other publishers:
+                  {% for publisher in newspaper.publishers.all %}
+                      {{ publisher.full_name }}{% if not forloop.last %}, {% endif %}
+                  {% endfor %}
+              </p>
+            </li>
+              {% empty %}
+                  <p>No newspapers published by this redactor.</p>
+              {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
