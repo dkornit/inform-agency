@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="{{ ASSETS_ROOT }}/img/favicon.png">
 
   <title>
-    Django Material Kit 2 - {% block title %}{% endblock %} | AppSeed
+    Newspaper Redactor Track System - {% block title %}{% endblock %} | AppSeed
   </title>
   
   <!--     Fonts and icons     -->
@@ -29,8 +29,10 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %} bg-gray-200">
-
-  {% block content %}{% endblock content %}  
+  {% include 'includes/navigation.html' %}
+  <div>
+    {% block content %}{% endblock content %}
+  </div>
 
   {% include 'includes/footer.html' %} 
 

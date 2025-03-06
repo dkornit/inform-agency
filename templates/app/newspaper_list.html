@@ -1,14 +1,44 @@
 {% extends "layouts/base.html" %}
 
 {% block content %}
-<h1>Newspaper List</h1>
-  {% if newspaper_list %}
-    <ul>
-      {% for newspaper in newspaper_list %}
-        <li>
-          {{ newspaper.title }} {{ newspaper.published_date}} {{ newspaper.topic }} {{ newspaper.publishers }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+
+<section class="py-9">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 my-auto">
+        <h3>Newspaper List</h3>
+        <p class="pe-5">This section displays a list of newspapers with their titles, publication dates, topics, and publishers. You can browse through the latest editions and learn more about each publication.</p>
+{#        <a href="javascript:;" class="text-primary icon-move-right">More about us#}
+          <i class="fas fa-arrow-right text-sm ms-1"></i>
+        </a>
+      </div>
+
+      <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        {% if newspaper_list %}
+          <ul class="list-unstyled">
+            {% for newspaper in newspaper_list %}
+              <li class="p-3 info-horizontal mb-3">
+                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
+                  <i class="fas fa-ship opacity-10"></i>
+                </div>
+                <div class="description ps-3">
+                  <strong>{{ newspaper.title }}</strong> <br>
+                  <span class="text-muted">{{ newspaper.published_date }}</span><br>
+                  <span class="text-muted">{{ newspaper.topic }}</span> <br>
+                  <span class="text-muted">
+                    {% for publisher in newspaper.publishers.all %}
+                      {{ publisher.first_name }} {{ publisher.last_name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                  </span>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
 {% endblock %}

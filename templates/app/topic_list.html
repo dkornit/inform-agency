@@ -1,0 +1,33 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<section class="py-9">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 my-auto">
+        <h3>Redactor List</h3>
+        <p class="pe-5">This section displays a list of topics</p>
+{#        <a href="javascript:;" class="text-primary icon-move-right">More about us#}
+          <i class="fas fa-arrow-right text-sm ms-1"></i>
+        </a>
+      </div>
+      <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        {% if topic_list %}
+          <ul class="list-unstyled">
+            {% for topic in topic_list %}
+              <li class="p-3 info-horizontal mb-3">
+                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
+                  <i class="fas fa-ship opacity-10"></i>
+                </div>
+                <div class="description ps-3">
+                  <span class="text-muted">{{ topic.name }}</span><br>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

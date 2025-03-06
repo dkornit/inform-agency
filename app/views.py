@@ -7,7 +7,6 @@ from app.models import Newspaper, Redactor, Topic
 
 # @login_required
 def index(request):
-    """View function for the home page of the site."""
 
     num_newspapers = Newspaper.objects.count()
     num_redactors = Redactor.objects.count()
