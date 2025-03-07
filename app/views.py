@@ -53,3 +53,14 @@ class RedactorDetailView(generic.DetailView):
 class TopicListView(generic.ListView):
     model = Topic
     template_name = "app/topic_list.html"
+
+
+class TopicDetailView(generic.DetailView):
+    model = Topic
+    template_name = "app/topic_detail.html"
+    context_object_name = "topic"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["newspapers"] = Newspaper.objects.filter(topic=self.object)
+        return context

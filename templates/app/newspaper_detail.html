@@ -9,9 +9,11 @@
           <h3>{{ newspaper.title }}</h3>
           <p style="font-style: italic">
             {{ newspaper.published_date }} by
-            {% for publisher in newspaper.publishers.all %}
-              {{ publisher.get_full_name|default:publisher.username }}{% if not forloop.last %}, {% endif %}
-            {% endfor %}
+              {% for publisher in newspaper.publishers.all %}
+                <a href="{% url 'app:redactor-detail' pk=publisher.id %}">
+                  {{ publisher.get_full_name|default:publisher.username }}{% if not forloop.last %}, {% endif %}
+                </a>
+              {% endfor %}
           </p>
           <p>{{ newspaper.content }}</p>
         </div>

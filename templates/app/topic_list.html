@@ -9,21 +9,25 @@
         <p class="pe-5">This section displays a list of topics</p>
         <i class="fas fa-arrow-right text-sm ms-1"></i>
       </div>
-      <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
-        {% if topic_list %}
-          <ul class="list-unstyled">
-            {% for topic in topic_list %}
-              <li class="p-3 info-horizontal mb-3">
-                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
-                  <i class="fas fa-ship opacity-10"></i>
-                </div>
-                <div class="description ps-3">
-                  <span class="text-muted">{{ topic.name }}</span><br>
-                </div>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+        <span class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+          {% if topic_list %}
+            <ul class="list-unstyled">
+              {% for topic in topic_list %}
+                <a href="{% url 'app:topic-detail' pk=topic.id %}">
+                  <li class="p-3 info-horizontal mb-3">
+                    <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
+                      <i class="fas fa-ship opacity-10"></i>
+                      </div>
+                      <div class="description ps-3">
+                      <strong>{{ topic.name }}</strong><br>
+                      <span class="text-muted">click to view </span>
+                    </div>
+                  </li>
+                </a>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </span>
       </div>
     </div>
   </div>
