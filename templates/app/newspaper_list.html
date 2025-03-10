@@ -8,28 +8,37 @@
       <div class="col-lg-6 my-auto">
         <h3>Newspaper List</h3>
         <p class="pe-5">This section displays a list of newspapers with their titles, publication dates, topics, and publishers. You can browse through the latest editions and learn more about each publication.</p>
-          <i class="fas fa-arrow-right text-sm ms-1"></i>
       </div>
       <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
         {% if newspaper_list %}
           <ul class="list-unstyled">
+            <h5><a href="{% url 'app:newspaper-create' %}">+ create new article</a></h5>
             {% for newspaper in newspaper_list %}
               <li class="p-3 info-horizontal mb-3">
-                <a href="{% url 'app:newspaper-detail' pk=newspaper.id %}">
+
                 <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
                   <i class="fas fa-ship opacity-10"></i>
                 </div>
                 <div class="description ps-3">
+                  <a href="{% url 'app:newspaper-detail' pk=newspaper.id %}">
                     <strong>{{ newspaper.title }}</strong><br>
+                  </a>
                     <span class="text-muted">{{ newspaper.published_date }}</span><br>
                     <span class="text-muted">{{ newspaper.topic }}</span><br>
                     <span class="text-muted">
                     {% for publisher in newspaper.publishers.all %}
                       {{ publisher.first_name }} {{ publisher.last_name }}{% if not loop.last %}, {% endif %}
                     {% endfor %}
-                  </span>
+                    </span><br>
+                    <strong><a href="{% url 'app:newspaper-update' pk=newspaper.id %}" class="">
+                      Update
+                    </a>
+                    </strong>
+                    <strong><a href="{% url 'app:newspaper-delete' pk=newspaper.id %}" class="">
+                      Delete
+                    </a>
+                    </strong>
                 </div>
-                </a>
               </li>
             {% endfor %}
           </ul>

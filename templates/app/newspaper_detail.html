@@ -1,7 +1,6 @@
 {% extends "layouts/base.html" %}
 
 {% block content %}
-
 <section class="py-9">
   <div class="container">
     <div class="row">
@@ -16,10 +15,14 @@
               {% endfor %}
           </p>
           <p>{{ newspaper.content }}</p>
+          <div>
+            <a href="{% url 'app:newspaper-update' pk=newspaper.id %}">Update article</a>
+          </div>
+          <div>
+            <a href="{% url 'app:newspaper-delete' pk=newspaper.id %}">Delete article</a>
+          </div>
         </div>
       </div>
     </div>
 </section>
-
-
 {% endblock %}
