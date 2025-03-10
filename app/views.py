@@ -68,6 +68,24 @@ class RedactorDetailView(generic.DetailView):
         context['newspapers'] = self.object.newspaper_set.all()
         return context
 
+class RedactorCreateView(generic.CreateView):
+    model = Redactor
+    fields = "__all__"
+    success_url = reverse_lazy("app:redactor-list")
+    template_name = "app/redactor_form.html"
+
+
+class RedactorUpdateView(generic.UpdateView):
+    model = Newspaper
+    fields = ("year_of_experience")
+    success_url = reverse_lazy("app:redactor-list")
+    template_name = "app/redactor_form.html"
+
+
+class RedactorDeleteView(generic.DeleteView):
+    model = Redactor
+    success_url = reverse_lazy("app:redactor-delete")
+
 
 class TopicListView(generic.ListView):
     model = Topic
@@ -83,3 +101,23 @@ class TopicDetailView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context["newspapers"] = Newspaper.objects.filter(topic=self.object)
         return context
+
+
+class TopicCreateView(generic.CreateView):
+    model = Topic
+    fields = "__all__"
+    success_url = reverse_lazy("app:topic-list")
+    template_name = "app/topic_form.html"
+
+
+class TopicUpdateView(generic.UpdateView):
+    model = Topic
+    fields = "__all__"
+    template_name = "app/topic_form.html"
+    success_url = reverse_lazy("app:topic-list")
+
+
+class TopicDeleteView(generic.DeleteView):
+    model = Topic
+    success_url = reverse_lazy("app:topic-list")
+

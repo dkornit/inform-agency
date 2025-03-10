@@ -10,8 +10,10 @@
         <i class="fas fa-arrow-right text-sm ms-1"></i>
       </div>
         <span class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+
           {% if topic_list %}
             <ul class="list-unstyled">
+              <h5><a href="{% url "app:topic-create" %}">+Add new topic</a></h5>
               {% for topic in topic_list %}
                 <a href="{% url 'app:topic-detail' pk=topic.id %}">
                   <li class="p-3 info-horizontal mb-3">
@@ -20,7 +22,11 @@
                       </div>
                       <div class="description ps-3">
                       <strong>{{ topic.name }}</strong><br>
-                      <span class="text-muted">click to view </span>
+                      <span class="text-muted">click to view </span><br>
+                      <strong>
+                        <a href="{% url "app:topic-update" pk=topic.id %}">Udate</a>
+                        <a href="{% url "app:topic-delete" pk=topic.id %}">Delete</a>
+                      </strong>
                     </div>
                   </li>
                 </a>

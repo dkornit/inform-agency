@@ -1,5 +1,9 @@
 from django import forms
-from app.models import Newspaper
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
+
+from app.models import Newspaper, Redactor, Topic
+
 
 class NewspaperForm(forms.ModelForm):
     class Meta:
@@ -10,3 +14,19 @@ class NewspaperForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
             field.widget.attrs.update({'class': 'form-control'})
+
+
+class RedactorCreateForm(UserCreationForm):
+    class Meta(UserCreationForm):
+        model = Redactor
+        fields = UserCreationForm.Meta.fields + (
+            "firs_name",
+            "last_name",
+            "year_of_experience",
+        )
+
+
+class TopicCreateForm(forms.ModelForm):
+    class Meta:
+        model = Topic
+        fields = "__all__"

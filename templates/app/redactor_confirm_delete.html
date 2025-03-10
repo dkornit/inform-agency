@@ -1,0 +1,12 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>Delete redactor?</h1>
+    <form action="" method="post">
+    {% csrf_token %}
+      <p>Please, confirm removing the redactor!</p>
+      <input type="submit" value="Yes" class="btn btn-danger">
+    </form>
+  </div>
+{% endblock %}
