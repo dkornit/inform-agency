@@ -40,7 +40,20 @@
 
       <ul class="navbar-nav d-lg-block d-none">
         <li class="nav-item">
-          <a href="https://www.creative-tim.com/product/material-design-system-pro#pricingCard" class="btn btn-sm  bg-gradient-primary  mb-0 me-1" role="button">Buy Now</a>
+          {% if user.is_authenticated %}
+{#              <div class="btn btn-sm  bg-gradient-primary  mb-0 me-1" >#}
+{#                {{ user.get_username }}#}
+{#              </div>#}
+              <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+                {% csrf_token %}
+                <div class="btn btn-sm  bg-gradient-primary  mb-0 me-1">{{ user.get_username }}</div>
+                <button type="submit" class="btn btn-sm  bg-gradient-primary  mb-0 me-1">Logout</button>
+              </form>
+                {% else %}
+              <a href="{% url 'login'%}?next={{request.path}}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1" role="button">
+                Login
+              </a>
+          {% endif %}
         </li>
       </ul>
     </div>

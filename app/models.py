@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Redactor(AbstractUser):
-    year_of_experience = models.IntegerField()
+    year_of_experience = models.IntegerField(null=True)
 
     class Meta:
         ordering = ["username"]

@@ -1,12 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from app.models import Newspaper, Redactor, Topic
 
 
-# @login_required
 def index(request):
 
     num_newspapers = Newspaper.objects.count()
@@ -36,20 +35,21 @@ class NewspaperDetailView(generic.DetailView):
     model = Newspaper
 
 
-class NewspaperCreateView(generic.CreateView):
-    model = Newspaper
-    fields = "__all__"
-    success_url = reverse_lazy("app:newspaper-list")
-    template_name = "app/newspaper_form.html"
-
-class NewspaperUpdateView(generic.UpdateView):
+class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = Newspaper
     fields = "__all__"
     success_url = reverse_lazy("app:newspaper-list")
     template_name = "app/newspaper_form.html"
 
 
-class NewspaperDeleteView(generic.DeleteView):
+class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Newspaper
+    fields = "__all__"
+    success_url = reverse_lazy("app:newspaper-list")
+    template_name = "app/newspaper_form.html"
+
+
+class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Newspaper
     success_url = reverse_lazy("app:newspaper-list")
 
@@ -68,21 +68,22 @@ class RedactorDetailView(generic.DetailView):
         context['newspapers'] = self.object.newspaper_set.all()
         return context
 
-class RedactorCreateView(generic.CreateView):
+
+class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
     fields = "__all__"
     success_url = reverse_lazy("app:redactor-list")
     template_name = "app/redactor_form.html"
 
 
-class RedactorUpdateView(generic.UpdateView):
+class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Newspaper
     fields = ("year_of_experience")
     success_url = reverse_lazy("app:redactor-list")
     template_name = "app/redactor_form.html"
 
 
-class RedactorDeleteView(generic.DeleteView):
+class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Redactor
     success_url = reverse_lazy("app:redactor-delete")
 
@@ -103,21 +104,20 @@ class TopicDetailView(generic.DetailView):
         return context
 
 
-class TopicCreateView(generic.CreateView):
+class TopicCreateView(LoginRequiredMixin, generic.CreateView):
     model = Topic
     fields = "__all__"
     success_url = reverse_lazy("app:topic-list")
     template_name = "app/topic_form.html"
 
 
-class TopicUpdateView(generic.UpdateView):
+class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Topic
     fields = "__all__"
     template_name = "app/topic_form.html"
     success_url = reverse_lazy("app:topic-list")
 
 
-class TopicDeleteView(generic.DeleteView):
+class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Topic
     success_url = reverse_lazy("app:topic-list")
-

@@ -1,6 +1,5 @@
 from django.urls import path
 
-from app.models import Redactor
 from app.views import (index,
                        NewspaperListView,
                        RedactorListView,

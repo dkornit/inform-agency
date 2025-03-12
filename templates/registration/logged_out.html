@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="py-9">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 my-auto">
+        <h3>Logged out!</h3>
+        <p class="pe-5">
+          <a href="{% url 'login' %}">Click here to login again.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
