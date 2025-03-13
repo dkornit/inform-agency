@@ -1,4 +1,5 @@
 {% extends "layouts/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -8,6 +9,10 @@
       <div class="col-lg-6 my-auto">
         <h3>Newspaper List</h3>
         <p class="pe-5">This section displays a list of newspapers with their titles, publication dates, topics, and publishers. You can browse through the latest editions and learn more about each publication.</p>
+        <form class=".form-control-sm" method="get" action="">
+          {{ search_form|crispy }}
+          <button type="submit" class="btn btn-sm  bg-gradient-primary  mb-0 me-1">Search</button>
+        </form>
       </div>
       <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
         {% if newspaper_list %}

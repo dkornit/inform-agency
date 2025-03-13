@@ -15,8 +15,8 @@ from app.views import (index,
                        RedactorDeleteView,
                        TopicCreateView,
                        TopicUpdateView,
-                       TopicDeleteView
-                    )
+                       TopicDeleteView, about_us
+                       )
 
 app_name = "app"
 
@@ -37,5 +37,5 @@ urlpatterns = [
     path("topics/create/", TopicCreateView.as_view(), name="topic-create"),
     path("topics/<int:pk>/update", TopicUpdateView.as_view(), name="topic-update"),
     path("topics/<int:pk>/delete", TopicDeleteView.as_view(), name="topic-delete"),
-
+    path("about", about_us, name="about-us")
 ]

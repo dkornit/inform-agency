@@ -16,11 +16,25 @@ class NewspaperForm(forms.ModelForm):
             field.widget.attrs.update({'class': 'form-control'})
 
 
+class NewspaperSearchForm(forms.Form):
+    title = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by title"
+            }
+        )
+
+    )
+
+
 class RedactorCreateForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = Redactor
         fields = UserCreationForm.Meta.fields + (
-            "firs_name",
+            "first_name",
             "last_name",
             "year_of_experience",
         )

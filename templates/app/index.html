@@ -3,7 +3,7 @@
 {% block content %}
 <body class="presentation-page bg-gray-200">
   <header class="header-2">
-    <div class="page-header min-vh-75 relative" style="background-image: url('{{ ASSETS_ROOT }}/img/bg2.jpg')">
+    <div class="page-header min-vh-75 relative" style="background-image: url('{{ ASSETS_ROOT }}/img/bg1.jpg')">
       <span class="mask bg-gradient-primary opacity-4"></span>
       <div class="container">
         <div class="row">
@@ -64,15 +64,15 @@
                 <div class="front front-background" style="background-image: url(https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80); background-size: cover;">
                   <div class="card-body py-7 text-center">
                     <i class="material-icons text-white text-4xl my-3">touch_app</i>
-                    <h3 class="text-white">Feel the <br /> Material Kit</h3>
-                    <p class="text-white opacity-8">All the Bootstrap components that you need in a development have been re-design with the new look.</p>
+                    <h3 class="text-white">Create new article<br /> in Track System</h3>
+                    <p class="text-white opacity-8">Click here to create a new article and share your insights with the world.</p>
                   </div>
                 </div>
                 <div class="back back-background" style="background-image: url(https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80); background-size: cover;">
                   <div class="card-body pt-7 text-center">
-                    <h3 class="text-white">Discover More</h3>
-                    <p class="text-white opacity-8"> You will save a lot of time going from prototyping to full-functional code because all elements are implemented.</p>
-                    <a href="/ui-sections-features.html" class="btn btn-white btn-sm w-50 mx-auto mt-3">Start with Headers</a>
+                    <h3 class="text-white">Start writing now and make your mark!</h3>
+                    <p class="text-white opacity-8">Express your ideas, share your knowledge, and contribute to the news landscape. Every article matters—start yours today!</p>
+                    <a href="{% url "app:newspaper-create" %}" class="btn btn-white btn-sm w-50 mx-auto mt-3">+</a>
                   </div>
                 </div>
               </div>
@@ -84,14 +84,14 @@
                 <div class="info">
                   <i class="material-icons text-gradient text-primary text-3xl">content_copy</i>
                   <h5 class="font-weight-bolder mt-3">Full Documentation</h5>
-                  <p class="pe-5">Built by developers for developers. Check the foundation and you will find everything inside our documentation.</p>
+                  <p class="pe-5">Built by journalists for journalists. Explore the foundation and find everything you need in our documentation.</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info">
                   <i class="material-icons text-gradient text-primary text-3xl">flip_to_front</i>
-                  <h5 class="font-weight-bolder mt-3">Bootstrap 5 Ready</h5>
-                  <p class="pe-3">The world’s most popular front-end open source toolkit, featuring Sass variables and mixins.</p>
+                  <h5 class="font-weight-bolder mt-3">Topic-Based System</h5>
+                  <p class="pe-3">Easily categorize and manage articles with a structured topic system. Keep content organized and accessible.</p>
                 </div>
               </div>
             </div>
@@ -99,13 +99,13 @@
               <div class="col-md-6 mt-3">
                 <i class="material-icons text-gradient text-primary text-3xl">price_change</i>
                 <h5 class="font-weight-bolder mt-3">Save Time & Money</h5>
-                <p class="pe-5">Creating your design from scratch with dedicated designers can be very expensive. Start with our Design System.</p>
+                <p class="pe-5">Writing and publishing made simple. Focus on your story while our system handles the structure and workflow.</p>
               </div>
               <div class="col-md-6 mt-3">
                 <div class="info">
                   <i class="material-icons text-gradient text-primary text-3xl">devices</i>
                   <h5 class="font-weight-bolder mt-3">Fully Responsive</h5>
-                  <p class="pe-3">Regardless of the screen size, the website content will naturally fit the given resolution.</p>
+                  <p class="pe-3">No matter the device, your news is always readable. Optimized for seamless access on any screen size.</p>
                 </div>
               </div>
             </div>

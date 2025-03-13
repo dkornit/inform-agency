@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
 
+from app.forms import NewspaperSearchForm
 from app.models import Newspaper, Redactor, Topic
 
 
@@ -25,10 +26,29 @@ def index(request):
     return render(request, "app/index.html", context=context)
 
 
+def about_us(request):
+    return render(request, 'app/about_us.html')
+
+
 class NewspaperListView(generic.ListView):
     model = Newspaper
     template_name = "app/newspaper_list.html"
+    queryset = Newspaper.objects.select_related("topic")
     paginate_by = 3
+
+    def get_context_data(self, **kwargs):
+        context = super(NewspaperListView, self).get_context_data(**kwargs)
+        title = self.request.GET.get("title", "")
+        context['search_form'] = NewspaperSearchForm(
+            initial={"title": title}
+        )
+        return context
+
+    def get_queryset(self):
+        form = NewspaperSearchForm(self.request.GET)
+        if form.is_valid():
+            return self.queryset.filter(title__icontains=form.cleaned_data["title"])
+        return self.queryset
 
 
 class NewspaperDetailView(generic.DetailView):
@@ -77,15 +97,19 @@ class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
 
 
 class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Newspaper
-    fields = ("year_of_experience")
+    model = Redactor
+    fields = ("first_name", "last_name", "year_of_experience",)
     success_url = reverse_lazy("app:redactor-list")
     template_name = "app/redactor_form.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['extra_data'] = 'Some extra data'
+        return context
 
 class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Redactor
-    success_url = reverse_lazy("app:redactor-delete")
+    success_url = reverse_lazy("app:redactor-list")
 
 
 class TopicListView(generic.ListView):
