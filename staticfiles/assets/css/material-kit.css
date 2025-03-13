@@ -515,8 +515,8 @@ progress {
 .container-xl,
 .container-xxl {
   width: 100%;
-  padding-right: var(--bs-gutter-x, 1.5rem);
-  padding-left: var(--bs-gutter-x, 1.5rem);
+  padding-right: var(--bs-gutter-x, 1.6rem);
+  padding-left: var(--bs-gutter-x, 1.6rem);
   margin-right: auto;
   margin-left: auto; }
 
@@ -1779,7 +1779,8 @@ progress {
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
   font-weight: 400;
-  color: #7b809a; }
+  color: #7b809a;
+  position: relative;}
 
 .col-form-label {
   padding-top: calc(0.5rem + 1px);
@@ -6424,7 +6425,7 @@ textarea.form-control-lg {
   margin-bottom: 1rem !important; }
 
 .mb-4 {
-  margin-bottom: 1.5rem !important; }
+  margin-bottom: 0.5rem; }
 
 .mb-5 {
   margin-bottom: 3rem !important; }
@@ -6891,16 +6892,16 @@ textarea.form-control-lg {
   padding-bottom: 4rem !important; }
 
 .py-7 {
-  padding-top: 6rem !important;
-  padding-bottom: 6rem !important; }
+  padding-top: 0rem;
+  padding-bottom: 3rem; }
 
 .py-8 {
   padding-top: 8rem !important;
   padding-bottom: 8rem !important; }
 
 .py-9 {
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important; }
+  padding-top: 5rem;
+  padding-bottom: 0rem; }
 
 .py-10 {
   padding-top: 12rem !important;
@@ -12576,7 +12577,7 @@ textarea.form-control-lg {
   box-shadow: 0 3px 3px 0 rgba(233, 30, 99, 0.15), 0 3px 1px -2px rgba(233, 30, 99, 0.2), 0 1px 5px 0 rgba(233, 30, 99, 0.15); }
   .btn-primary:hover,
   .btn.bg-gradient-primary:hover {
-    background-color: #e91e63;
+    background-color: #abb3b0;
     border-color: #e91e63;
     box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.4), 0 4px 23px 0 rgba(233, 30, 99, 0.15), 0 8px 10px -5px rgba(233, 30, 99, 0.2); }
   .btn-primary .btn.bg-outline-primary,

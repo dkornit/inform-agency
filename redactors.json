@@ -1,7 +1,17 @@
-[
-  {
+[ {
     "model": "app.redactor",
     "pk": 1,
+    "fields": {
+      "username": "admin",
+      "first_name": "Admin",
+      "last_name": "Admin",
+      "email": "admin@admin.com",
+      "password": "7tbdm55t"
+    }
+  },
+  {
+    "model": "app.redactor",
+    "pk": 2,
     "fields": {
       "username": "john_smith",
       "first_name": "John",
@@ -13,7 +23,7 @@
   },
   {
     "model": "app.redactor",
-    "pk": 2,
+    "pk": 3,
     "fields": {
       "username": "emily_johnson",
       "first_name": "Emily",
@@ -25,7 +35,7 @@
   },
   {
     "model": "app.redactor",
-    "pk": 3,
+    "pk": 4,
     "fields": {
       "username": "michael_brown",
       "first_name": "Michael",
