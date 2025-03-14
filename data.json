@@ -1,5 +1,87 @@
 [
   {
+    "model": "app.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Technology"
+    }
+  },
+  {
+    "model": "app.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Environment"
+    }
+  },
+  {
+    "model": "app.topic",
+    "pk": 3,
+    "fields": {
+      "name": "Science"
+    }
+  },
+  {
+    "model": "app.topic",
+    "pk": 4,
+    "fields": {
+      "name": "Business"
+    }
+  },
+  {
+    "model": "app.topic",
+    "pk": 5,
+    "fields": {
+      "name": "Automotive"
+    }
+  },
+  {
+    "model": "app.redactor",
+    "pk": 1,
+    "fields": {
+      "username": "admin",
+      "first_name": "Admin",
+      "last_name": "Admin",
+      "email": "admin@admin.com",
+      "password": "7tbdm55t"
+    }
+  },
+  {
+    "model": "app.redactor",
+    "pk": 2,
+    "fields": {
+      "username": "john_smith",
+      "first_name": "John",
+      "last_name": "Smith",
+      "email": "john.smith@example.com",
+      "year_of_experience": 5,
+      "password": "pbkdf2_sha256$260000$randomhash"
+    }
+  },
+  {
+    "model": "app.redactor",
+    "pk": 3,
+    "fields": {
+      "username": "emily_johnson",
+      "first_name": "Emily",
+      "last_name": "Johnson",
+      "email": "emily.johnson@example.com",
+      "year_of_experience": 7,
+      "password": "pbkdf2_sha256$260000$randomhash"
+    }
+  },
+  {
+    "model": "app.redactor",
+    "pk": 4,
+    "fields": {
+      "username": "michael_brown",
+      "first_name": "Michael",
+      "last_name": "Brown",
+      "email": "michael.brown@example.com",
+      "year_of_experience": 10,
+      "password": "pbkdf2_sha256$260000$randomhash"
+    }
+  },
+  {
     "model": "app.newspaper",
     "fields": {
       "title": "The Rise of AI in Modern Healthcare",
