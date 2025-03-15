@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
 ALLOWED_HOSTS = []
 
@@ -110,8 +109,9 @@ AUTH_USER_MODEL = "app.Redactor"
 
 LOGIN_REDIRECT_URL = "/"
 
-load_dotenv()
-SECRET_KEY = os.getenv("SECRET_KEY")
+
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-gnh9+#=z9qm%krag*ig71+lo^p=gpj73b&e**n-&q9ulp9(7l7")
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
