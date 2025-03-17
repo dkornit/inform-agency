@@ -8,6 +8,12 @@ Additionally, each newspaper can have multiple topics assigned.</p>
 
 <p>Only authenticated users can add, edit, and delete newspaper issues, editors, and topics.</p>
 
+Link to the deployed site: https://inform-agency-2nnq.onrender.com/
+<h1>Test user:</h1>
+
+    login: user
+    password: user12345
+
 <h3>Requirements</h3>
 
 Required Tools:
@@ -65,9 +71,5 @@ Open the application in your browser at:
 
 Any user can watch the ListView, DetailView, main page. 
 
-<h1>Test user:</h1>
-
-    login: user
-    password: user12345
 
 
