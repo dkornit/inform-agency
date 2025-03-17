@@ -65,6 +65,9 @@ Open the application in your browser at:
 
 Any user can watch the ListView, DetailView, main page. 
 
+<h1>Test user:</h1>
 
+    login: user
+    password: user12345
 
 
