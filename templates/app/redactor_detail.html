@@ -1,0 +1,71 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section class="py-9">
+  <div class="container">
+    <div class="row">
+      {% if redactor %}
+      <div class="col-lg-6 my-auto">
+        <h3>{{ redactor.full_name }}</h3>
+        <p>Experience: {{ redactor.year_of_experience }} years</p>
+      </div>
+      <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        <h4>Newspapers published by {{ redactor.full_name }}</h4>
+        <ul class="list-unstyled">
+          {% for newspaper in newspapers %}
+          <li class="p-3 info-horizontal mb-3">
+            <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
+              <i class="fas fa-newspaper opacity-10"></i>
+            </div>
+            <div class="description ps-3">
+              <a href="{% url 'app:newspaper-detail' pk=newspaper.id %}">
+                <strong>{{ newspaper.title }}</strong>
+              </a>
+              <p class="mb-0">Published on: {{ newspaper.published_date }}</p>
+              <p class="mb-0">Topic: {{ newspaper.topic.name }}</p>
+              <p class="mb-0">Other publishers:
+                {% for publisher in newspaper.publishers.all %}
+                  {{ publisher.full_name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+              </p>
+            </div>
+          </li>
+          {% empty %}
+          <p>No newspapers published by this redactor.</p>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="row mt-5">
+      {% if topic %}
+      <div class="col-lg-6 my-auto">
+        <h3>Articles about "{{ topic.name }}"</h3>
+      </div>
+      <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        <ul class="list-unstyled">
+          {% for newspaper in newspapers %}
+          <li class="p-3 info-horizontal mb-3">
+            <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
+              <i class="fas fa-ship opacity-10"></i>
+            </div>
+            <div class="description ps-3">
+              <a href="{% url 'app:newspaper-detail' pk=newspaper.id %}">
+                <strong>{{ newspaper.title }}</strong>
+              </a>
+              <p class="mb-0">Published on: {{ newspaper.published_date }}</p>
+            </div>
+          </li>
+          {% empty %}
+          <p>No articles found for this topic.</p>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

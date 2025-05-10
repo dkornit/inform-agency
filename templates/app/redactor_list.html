@@ -1,0 +1,40 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section class="py-9">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 my-auto">
+        <h3>Redactor List</h3>
+        <p class="pe-5">This section displays a list of redactors with their full name and experience</p>
+          <i class="fas fa-arrow-right text-sm ms-1"></i>
+      </div>
+      <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        {% if redactor_list %}
+          <ul class="list-unstyled">
+          <h5><a href="{% url "app:redactor-create" %}">+Add new redactor</a></h5>
+            {% for redactor in redactor_list %}
+              <li class="p-3 info-horizontal mb-3">
+                <a href="{% url 'app:redactor-detail' pk=redactor.id %}">
+                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
+                  <i class="fas fa-ship opacity-10"></i>
+                  </div>
+                    <div class="description ps-3">
+                        <strong>{{ redactor.first_name }} {{ redactor.last_name }}</strong><br>
+                        <span class="text-muted">{{ redactor.year_of_experience }} years of experience</span><br>
+                        <span>
+                          <strong><a href="{% url "app:redactor-update" pk=redactor.id %}">Update</a></strong>
+                          <strong><a href="{% url "app:redactor-delete" pk=redactor.id %}">Delete</a></strong>
+                        </span>
+                  </div>
+                  </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

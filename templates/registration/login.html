@@ -1,0 +1,33 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="py-9">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 my-auto">
+        <h3>Login</h3>
+        <p class="pe-5">Add correct information of new redactor</p>
+      </div>
+      <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        <span class="text-muted">
+          <form method="post" class="card p-4 shadow-sm">
+            {% if form.errors %}
+              <p style="">Invalid credentials</p>
+            {% endif %}
+
+            {% if next %}
+              <p>Please login to see this page.</p>
+            {% endif %}
+
+            <form class="card p-4 shadow-sm" action="{% url 'login' %}" method="post">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <input type="submit" value="Login" class="btn btn-primary">
+            </form>
+          </form>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

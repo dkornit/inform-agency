@@ -1,0 +1,12 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>Delete article?</h1>
+    <form action="" method="post">
+    {% csrf_token %}
+      <p>Please, confirm removing this article!</p>
+      <input type="submit" value="Yes" class="btn btn-danger">
+    </form>
+  </div>
+{% endblock %}
